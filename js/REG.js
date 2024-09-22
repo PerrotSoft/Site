@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let Password = document.querySelector('#password');
     let button = document.querySelector('#reg');
 
+    if (!Login || !Emeil || !Password || !button) {
+        console.error('Один из элементов формы не найден.');
+        return;
+    }
+
     let users = {};
 
     function User(Login, Emeil, Password) {
@@ -12,28 +17,22 @@ document.addEventListener('DOMContentLoaded', () => {
         this.Password = Password;
     }
 
-    function SetCookie(name,value){
-        document.cookie = name+"="+value;
+    function SetCookie(name, value) {
+        document.cookie = name + "=" + value;
     }
+
     function createID(users) {
         return Object.keys(users).length;
     }
 
-button.addEventListener('click', () => {
-    if (Login.value === '' || Emeil.value === '' || Password.value === '') {
-        alert('Пожалуйста, заполните все поля!');
-        return;
-    }
-
-    const user = new User(Login.value, Emeil.value, Password.value);
-    users['User' + createID(users)] = user;
-    SetCookie('user', '1');
-    SetCookie('Login', Login.value);
-    SetCookie('Emeil', Emeil.value);
-    SetCookie('Password', Password.value);
-    console.log(users);
-    alert(document.cookie);
+    button.addEventListener('click', () => {
+        const user = new User(Login.value, Emeil.value, Password.value);
+        users['User' + createID(users)] = user;
+        SetCookie('user', '1');
+        SetCookie('Login', Login.value);
+        SetCookie('Emeil', Emeil.value);
+        SetCookie('Password', Password.value);
+        console.log(users);
+        alert(document.cookie);
+    });
 });
-
-});
-
