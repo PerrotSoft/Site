@@ -30,22 +30,4 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(document.cookie);
     });
 });
-// Ôóíêöèÿ äëÿ äîáàâëåíèÿ ÿ÷åéêè äàííûõ
-function addProject(project) {
-    // Ïîëó÷àåì òåêóùèå äàííûå èç localStorage
-    let projects = JSON.parse(localStorage.getItem('projects')) || [];
-
-    // Äîáàâëÿåì íîâûé ïðîåêò
-    projects.push(project);
-
-    // Ñîõðàíÿåì îáíîâëåííûå äàííûå â localStorage
-    localStorage.setItem('projects', JSON.stringify(projects));
-}
-
-// Ôóíêöèÿ äëÿ ÷òåíèÿ âñåõ ÿ÷ååê äàííûõ
-//function getProjects() {
-    // Ïîëó÷àåì äàííûå èç localStorage
-   // let projects = JSON.parse(localStorage.getItem('projects')) || [];
-   // return projects;
-}
 
