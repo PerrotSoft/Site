@@ -20,14 +20,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     button.addEventListener('click', () => {
-        const user = new User(Login.value, Emeil.value, Password.value);
-        users['User' + createID(users)] = user;
-        SetCookie('user','1');
-        SetCookie('Login',Login.value);
-        SetCookie('Emeil',Emeil.value);
-        SetCookie('Password',Password.value);
-        console.log(users);
-        alert(document.cookie);
-    });
+    if (Login.value === '' || Emeil.value === '' || Password.value === '') {
+        alert('Пожалуйста, заполните все поля!');
+        return;
+    }
+
+    const user = new User(Login.value, Emeil.value, Password.value);
+    users['User' + createID(users)] = user;
+    SetCookie('user', '1');
+    SetCookie('Login', Login.value);
+    SetCookie('Emeil', Emeil.value);
+    SetCookie('Password', Password.value);
+    console.log(users);
+    alert(document.cookie);
+});
+
 });
 
