@@ -27,31 +27,24 @@ document.addEventListener('DOMContentLoaded', () => {
         SetCookie('Emeil',Emeil.value);
         SetCookie('Password',Password.value);
         console.log(users);
-        fs.writeFile(path.join(__dirname, 'output.txt'), newData + Login.value + "|" + Emeil.value+"|"+Password.value+"\n", (err) => {
-            if (err) {
-                console.error('Ошибка при записи в файл:', err);
-                return;
-            }
-            console.log('Данные успешно записаны в output.txt');
-        });
         alert(document.cookie);
     });
 });
-// Функция для добавления ячейки данных
+// Г”ГіГ­ГЄГ¶ГЁГї Г¤Г«Гї Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї ГїГ·ГҐГ©ГЄГЁ Г¤Г Г­Г­Г»Гµ
 function addProject(project) {
-    // Получаем текущие данные из localStorage
+    // ГЏГ®Г«ГіГ·Г ГҐГ¬ ГІГҐГЄГіГ№ГЁГҐ Г¤Г Г­Г­Г»ГҐ ГЁГ§ localStorage
     let projects = JSON.parse(localStorage.getItem('projects')) || [];
 
-    // Добавляем новый проект
+    // Г„Г®ГЎГ ГўГ«ГїГҐГ¬ Г­Г®ГўГ»Г© ГЇГ°Г®ГҐГЄГІ
     projects.push(project);
 
-    // Сохраняем обновленные данные в localStorage
+    // Г‘Г®ГµГ°Г Г­ГїГҐГ¬ Г®ГЎГ­Г®ГўГ«ГҐГ­Г­Г»ГҐ Г¤Г Г­Г­Г»ГҐ Гў localStorage
     localStorage.setItem('projects', JSON.stringify(projects));
 }
 
-// Функция для чтения всех ячеек данных
+// Г”ГіГ­ГЄГ¶ГЁГї Г¤Г«Гї Г·ГІГҐГ­ГЁГї ГўГ±ГҐГµ ГїГ·ГҐГҐГЄ Г¤Г Г­Г­Г»Гµ
 //function getProjects() {
-    // Получаем данные из localStorage
+    // ГЏГ®Г«ГіГ·Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ ГЁГ§ localStorage
    // let projects = JSON.parse(localStorage.getItem('projects')) || [];
    // return projects;
 }
